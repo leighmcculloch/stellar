@@ -1,0 +1,4 @@
+*.db
+*.xdr
+stellar-core.lock
+buckets/
