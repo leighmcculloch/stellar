@@ -1,0 +1,9 @@
+[package]
+name = "bucket-slimmer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+stellar-xdr = { version = "22.1.0" }
+rayon = { version = "1.5" }
+indicatif = { version = "0.17", features = ["rayon"] }
