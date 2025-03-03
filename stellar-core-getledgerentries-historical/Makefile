@@ -15,5 +15,5 @@ monitor:
 test:
 	http -v --form \
 		:11726/getledgerentryraw \
-		key="$(echo '{"contract_data":{"contract": "CAS3J7GYLGXMF6TDJBBYYSE3HQ6BBSMLNUQ34T6TZMYMW2EVH34XOWMA","key": "ledger_key_contract_instance","durability": "persistent"}}' | stellar xdr encode --type LedgerKey)" \
+		key="$$(echo '{"contract_data":{"contract": "'"$$(stellar contract id asset --asset native --network mainnet)"'","key": "ledger_key_contract_instance","durability": "persistent"}}' | stellar xdr encode --type LedgerKey)" \
 		ledgerSeq=$(LEDGER)
