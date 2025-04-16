@@ -18,7 +18,7 @@ struct Args {
     bind_address: SocketAddr,
 
     /// The Horizon API server URL
-    #[clap(short, long, default_value = "https://horizon-testnet.stellar.org")]
+    #[clap(long, default_value = "https://horizon-testnet.stellar.org")]
     horizon_url: String,
 }
 
@@ -34,9 +34,7 @@ async fn main() -> anyhow::Result<()> {
     let rpc = StellarRpcServer::new(horizon_url.clone())?;
 
     // Build the JSON-RPC server
-    let server = ServerBuilder::default()
-        .build(bind_address)
-        .await?;
+    let server = ServerBuilder::default().build(bind_address).await?;
 
     // Register the RPC API methods
     let server_handle = server.start(rpc.into_rpc());
@@ -63,3 +61,4 @@ async fn wait_for_shutdown(server_handle: ServerHandle) -> anyhow::Result<()> {
     info!("Server stopped");
     Ok(())
 }
+
