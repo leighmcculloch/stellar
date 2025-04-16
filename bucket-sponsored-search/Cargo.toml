@@ -1,0 +1,9 @@
+[package]
+name = "bucket-sponsored-search"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+stellar-xdr = { version = "22.1.0", features = ["base64"] }
+rayon = { version = "1.5" }
+indicatif = { version = "0.17", features = ["rayon"] }
